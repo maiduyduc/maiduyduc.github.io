@@ -49,26 +49,13 @@
                                                 btn-lg" name="submit" type="submit">Đăng ký
                                         </button>
                                     </div>
-                                                <?php 
-                                    if(isset($_POST['submit'])){
-                                        $name = $_POST['name'];
-                                        $file = 'list.txt';
-                                        $fh = fopen($file, 'a+');
-                                        fwrite($fh, $name."\n");
-                                        fclose($fh);
-                                    }
-                                    ?>
+                                                
                                 </form>
                             </div>
                         </section>
                         <span id="today" class="section-heading-upper"></span>
                         <br>
                         <span id="time-active" class="section-heading-upper"></span>
-                        <!-- <p class="address mb-5"><em><strong>1116 Orchard
-                                    Street</strong><span><br>Golden Valley,
-                                    Minnesota</span></em></p>
-                        <p class="address mb-0"><small><em>Call Anytime</em></small><span><br>(317)
-                                585-8468</span></p> -->
                     </div>
                 </div>
             </div>
@@ -116,7 +103,7 @@
             day = currentTime.getDate();
             year = currentTime.getFullYear();
             
-            if (day >= 1 && month == 2 && year == 2021) {
+            if (day >= 1 && month == 2 && year == 2022) {
                 document.getElementById('today').innerHTML = "Hôm nay là ngày: " + day + "/" + month + "/" + year;
             }
             else if (day > 4 && month == 2 && year == 2022) {
