@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,
+            shrink-to-fit=no">
+    <title>Store - Đăng ký họp lớp</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i">
+</head>
+
+<body style="background:linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url('assets/img/bg.jpg');">
+
+    <h1 class="text-center text-white d-none d-lg-block site-heading">
+        <span class="site-heading-upper mb-3">Mỗi năm họp có một lần&nbsp;</span>
+        <span class="site-heading-upper mb-3">Cứ chơi tới bến, không say
+            không về&nbsp;</span>
+    </h1>
+    <section class="page-section cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <div class="cta-inner text-center rounded">
+
+                        <h2 class="section-heading mb-5"><span class="section-heading-upper">Come On With</span>
+                            <span class="section-heading-lower">9A class</span>
+                        </h2>
+                        <section id="form_ac" class="portfolio-block
+                                contact">
+                            <div class="container">
+                                <!-- <div class="heading">
+                                        <h2>Contact me</h2>
+                                    </div> -->
+                                <form method="post">
+                                    <div class="form-group">
+                                        <label for="name">Họ và Tên</label>
+                                        <input class="form-control item" type="text" name="name">
+                                    </div>
+                                    
+                                    <!-- <div class="form-group"><label
+                                                for="subject">Subject</label><input
+                                                class="form-control item"
+                                                type="text" id="subject"></div>-->
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-block
+                                                btn-lg" name="submit" type="submit">Đăng ký
+                                        </button>
+                                    </div>
+                                                <?php 
+                                    if(isset($_POST['submit'])){
+                                        $name = $_POST['name'];
+                                        $file = 'list.txt';
+                                        $fh = fopen($file, 'a+');
+                                        fwrite($fh, $name."\n");
+                                        fclose($fh);
+                                    }
+                                    ?>
+                                </form>
+                            </div>
+                        </section>
+                        <span id="today" class="section-heading-upper"></span>
+                        <br>
+                        <span id="time-active" class="section-heading-upper"></span>
+                        <!-- <p class="address mb-5"><em><strong>1116 Orchard
+                                    Street</strong><span><br>Golden Valley,
+                                    Minnesota</span></em></p>
+                        <p class="address mb-0"><small><em>Call Anytime</em></small><span><br>(317)
+                                585-8468</span></p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  -->
+    <!--  -->
+    <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 small">Copyright&nbsp;©&nbsp;Mai Duy Đức 2021</p>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Feb 1, 2022 0:0:0").getTime();
+    
+        // Update the count down every 1 second
+        var countdownfunction = setInterval(function () {
+    
+            // Get todays date and time
+            var now = new Date().getTime();
+    
+            // Find the distance between now an the count down date
+            var distance = countDownDate - now;
+    
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+            document.getElementById("ngay").innerHTML = days;
+            document.getElementById("gio").innerHTML = hours;
+            document.getElementById("phut").innerHTML = minutes;
+            document.getElementById("giay").innerHTML = seconds;
+        }, 1000);
+    
+    </script>
+    <script>
+        function clockTick() {
+            currentTime = new Date();
+            month = currentTime.getMonth() + 1;
+            day = currentTime.getDate();
+            year = currentTime.getFullYear();
+            
+            if (day >= 1 && month == 2 && year == 2021) {
+                document.getElementById('today').innerHTML = "Hôm nay là ngày: " + day + "/" + month + "/" + year;
+            }
+            else if (day > 4 && month == 2 && year == 2022) {
+                document.getElementById('today').innerHTML = "Hôm nay là ngày: " + day + "/" + month + "/" + year;
+                document.getElementById('form_ac').innerHTML = "<h1 class='section-heading mb-5'><span class='site-heading-upper mb-3' style='color:#333'>Đã hết thời gian đăng ký</span></h1>";
+            }
+            else {
+                document.getElementById('today').innerHTML = "Hôm nay là ngày: " + day + "/" + month + "/" + year;
+                document.getElementById('time-active').innerHTML = "Vui lòng quay lại sau: " +
+                    "<br><span id='ngay'></span> ngày " +
+                    "<span id='gio'></span> giờ " +
+                    "<span id='phut'></span> phút "+
+                    "<span style='transition: ease-in-out 1s' id='giay'></span> giây nữa.";
+                document.getElementById('form_ac').innerHTML = "<h1 class='section-heading mb-5'><span class='site-heading-upper mb-3' style='color:#333'>Chưa đến thời gian đăng ký</span></h1>";
+            }
+        }
+        setInterval(function () { clockTick(); }, 1000);
+    </script>
+</body>
+
+</html>
+
