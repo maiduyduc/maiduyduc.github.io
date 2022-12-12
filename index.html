@@ -6,112 +6,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,
             shrink-to-fit=no">
     <title>Điểm danh họp lớp năm 2023</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i">
+	<style>
+	@import url("https://fonts.googleapis.com/css?family=Raleway:900&display=swap");
+
+body {
+    margin: 0px;
+}
+
+#container {
+    position: absolute;
+    margin: auto;
+    width: 100vw;
+    height: 80pt;
+    top: 0;
+    bottom: 0;
+
+    filter: url(#threshold) blur(0.6px);
+}
+
+#text1,
+#text2 {
+    position: absolute;
+    width: 100%;
+    display: inline-block;
+
+    font-family: "Raleway", sans-serif;
+    font-size: 80pt;
+
+    text-align: center;
+
+    user-select: none;
+}
+
+	</style>
 </head>
 
-<body style="background:linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url('assets/img/bg.jpg');">
+<body>
+<div id="container">
+    <span id="text1"></span>
+    <span id="text2"></span>
+</div>
 
-    <h1 class="text-center text-white d-none d-lg-block site-heading">
-        <span class="site-heading-upper mb-3">Mỗi năm họp có một lần&nbsp;</span>
-        <span class="site-heading-upper mb-3">Cứ chơi tới bến, không say
-            không về&nbsp;</span>
-    </h1>
-    <section class="page-section cta">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-9 mx-auto">
-                    <div class="cta-inner text-center rounded">
-
-                        <h2 class="section-heading mb-5"><span class="section-heading-upper">Điểm danh họp lớp năm <span style="font-size: 1.3rem;">2023</span></span>
-                            <span class="section-heading-lower">9A class</span>
-                        </h2>
-                        <section id="form_ac" class="portfolio-block
-                                contact">
-                            <div class="container">
-                                <form method="post">
-                                    <div class="form-group">
-                                        <label for="name">Họ và Tên</label>
-                                        <input class="form-control item" type="text" name="name">
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary btn-block
-                                                btn-lg" name="submit" type="submit">Đăng ký
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </section>
-                        <span id="today" class="section-heading-upper"></span>
-                        <br>
-                        <span id="time-active" class="section-heading-upper"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--  -->
-    <!--  -->
-    <footer class="footer text-faded text-center py-5">
-        <div class="container">
-            <p class="m-0 small">Copyright&nbsp;©&nbsp;Mai Duy Đức 2021</p>
-        </div>
-    </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script>
-        function clockTick() {
-            currentTime = new Date();
-            month = currentTime.getMonth() + 1;
-            day = currentTime.getDate();
-            year = currentTime.getFullYear();
-            
-            if (day >= 22 && month == 1 && year == 2023) {
-                document.getElementById('today').innerHTML = "Hôm nay là ngày: " + day + "/" + month + "/" + year;
-            }
-            else if (day > 24 && month == 1 && year == 2023) {
-                document.getElementById('today').innerHTML = "Hôm nay là ngày: " + day + "/" + month + "/" + year;
-                document.getElementById('form_ac').innerHTML = "<h1 class='section-heading mb-5'><span class='site-heading-upper mb-3' style='color:#333'>Đã hết thời gian đăng ký</span></h1>";
-            }
-            else {
-                document.getElementById('today').innerHTML = "Hôm nay là ngày: " + day + "/" + month + "/" + year;
-                document.getElementById('time-active').innerHTML = "Vui lòng quay lại sau: " +
-                    "<br><span id='ngay'></span> ngày " +
-                    "<span id='gio'></span> giờ " +
-                    "<span id='phut'></span> phút "+
-                    "<span style='transition: ease-in-out 1s' id='giay'></span> giây nữa.";
-                document.getElementById('form_ac').innerHTML = "<h1 class='section-heading mb-5'><span class='site-heading-upper mb-3' style='color:#333'>Chưa đến thời gian đăng ký</span></h1>";
-            }
-        }
-        setInterval(function () { clockTick(); }, 1000);
-    </script>
+<svg id="filters">
+    <defs>
+        <filter id="threshold">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+									0 1 0 0 0
+									0 0 1 0 0
+									0 0 0 255 -140" />
+        </filter>
+    </defs>
+</svg>
+ 
     <script>
-        // Set the date we're counting down to
-        var countDownDate = new Date("Jan 22, 2023 0:0:0").getTime();
-    
-        // Update the count down every 1 second
-        var countdownfunction = setInterval(function () {
-    
-            // Get todays date and time
-            var now = new Date().getTime();
-    
-            // Find the distance between now an the count down date
-            var distance = countDownDate - now;
-    
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-            document.getElementById("ngay").innerHTML = days;
-            document.getElementById("gio").innerHTML = hours;
-            document.getElementById("phut").innerHTML = minutes;
-            document.getElementById("giay").innerHTML = seconds;
-        }, 1000);
-    
+        const elts = {
+    text1: document.getElementById("text1"),
+    text2: document.getElementById("text2")
+};
+
+const texts = [
+    "I'm",
+    "Đức",
+    "And",
+    "I",
+    "Love",
+    "Phương Anh",
+    "<3",
+];
+
+const morphTime = 1;
+const cooldownTime = 0.25;
+
+let textIndex = texts.length - 1;
+let time = new Date();
+let morph = 0;
+let cooldown = cooldownTime;
+
+elts.text1.textContent = texts[textIndex % texts.length];
+elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+
+function doMorph() {
+    morph -= cooldown;
+    cooldown = 0;
+
+    let fraction = morph / morphTime;
+
+    if (fraction > 1) {
+        cooldown = cooldownTime;
+        fraction = 1;
+    }
+
+    setMorph(fraction);
+}
+
+function setMorph(fraction) {
+    elts.text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+    elts.text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+
+    fraction = 1 - fraction;
+    elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+    elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+
+    elts.text1.textContent = texts[textIndex % texts.length];
+    elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+}
+
+function doCooldown() {
+    morph = 0;
+
+    elts.text2.style.filter = "";
+    elts.text2.style.opacity = "100%";
+
+    elts.text1.style.filter = "";
+    elts.text1.style.opacity = "0%";
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+
+    let newTime = new Date();
+    let shouldIncrementIndex = cooldown > 0;
+    let dt = (newTime - time) / 1000;
+    time = newTime;
+
+    cooldown -= dt;
+
+    if (cooldown <= 0) {
+        if (shouldIncrementIndex) {
+            textIndex++;
+        }
+
+        doMorph();
+    } else {
+        doCooldown();
+    }
+}
+
+animate();
+
     </script>
     
 </body>
